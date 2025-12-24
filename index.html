@@ -32,31 +32,33 @@
   <main class="max-w-7xl mx-auto px-6 py-10 grid md:grid-cols-3 gap-8">
 
     <!-- Add Book -->
-    <div class="bg-white rounded-2xl shadow-xl p-6 hover:scale-105 transition">
+    <div class="bg-white rounded-2xl shadow-xl p-6">
       <h2 class="text-xl font-bold text-indigo-700 mb-4">➕ Add Book</h2>
-      <input class="w-full mb-3 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400" type="text" placeholder="Book Name">
-      <input class="w-full mb-3 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400" type="text" placeholder="Author Name">
-      <input class="w-full mb-4 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400" type="text" placeholder="Book ID">
-      <button class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-lg font-semibold">
+
+      <input id="bookName" class="w-full mb-3 p-3 border rounded-lg" type="text" placeholder="Book Name">
+      <input id="authorName" class="w-full mb-3 p-3 border rounded-lg" type="text" placeholder="Author Name">
+      <input id="bookId" class="w-full mb-4 p-3 border rounded-lg" type="text" placeholder="Book ID">
+
+      <button onclick="addBook()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-lg font-semibold">
         Add Book
       </button>
     </div>
 
     <!-- Add Student -->
-    <div class="bg-white rounded-2xl shadow-xl p-6 hover:scale-105 transition">
+    <div class="bg-white rounded-2xl shadow-xl p-6">
       <h2 class="text-xl font-bold text-green-700 mb-4">👤 Add Student</h2>
-      <input class="w-full mb-3 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400" type="text" placeholder="Student Name">
-      <input class="w-full mb-4 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400" type="text" placeholder="Student ID">
+      <input class="w-full mb-3 p-3 border rounded-lg" type="text" placeholder="Student Name">
+      <input class="w-full mb-4 p-3 border rounded-lg" type="text" placeholder="Student ID">
       <button class="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-semibold">
         Add Student
       </button>
     </div>
 
     <!-- Issue Book -->
-    <div class="bg-white rounded-2xl shadow-xl p-6 hover:scale-105 transition">
+    <div class="bg-white rounded-2xl shadow-xl p-6">
       <h2 class="text-xl font-bold text-red-700 mb-4">📕 Issue Book</h2>
-      <input class="w-full mb-3 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400" type="text" placeholder="Student ID">
-      <input class="w-full mb-4 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400" type="text" placeholder="Book ID">
+      <input class="w-full mb-3 p-3 border rounded-lg" type="text" placeholder="Student ID">
+      <input class="w-full mb-4 p-3 border rounded-lg" type="text" placeholder="Book ID">
       <button class="w-full bg-red-600 hover:bg-red-700 text-white py-3 rounded-lg font-semibold">
         Issue Book
       </button>
@@ -64,12 +66,61 @@
 
   </main>
 
+  <!-- Book List -->
+  <section class="max-w-7xl mx-auto px-6 pb-10">
+    <div class="bg-white rounded-2xl shadow-xl p-6">
+      <h2 class="text-2xl font-bold text-indigo-700 mb-4">📖 Book List</h2>
+
+      <div class="overflow-x-auto">
+        <table class="w-full border text-center">
+          <thead class="bg-indigo-600 text-white">
+            <tr>
+              <th class="border p-2">Book ID</th>
+              <th class="border p-2">Book Name</th>
+              <th class="border p-2">Author</th>
+            </tr>
+          </thead>
+          <tbody id="bookTable" class="bg-gray-50">
+            <!-- Dynamic rows -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer class="bg-indigo-700 text-white mt-10">
     <div class="max-w-7xl mx-auto px-6 py-4 text-center">
       <p class="text-sm">&copy; 2025 Library Management System | Designed with Tailwind CSS</p>
     </div>
   </footer>
+
+  <!-- JavaScript -->
+  <script>
+    function addBook() {
+      const bookName = document.getElementById("bookName").value;
+      const authorName = document.getElementById("authorName").value;
+      const bookId = document.getElementById("bookId").value;
+
+      if (bookName === "" || authorName === "" || bookId === "") {
+        alert("Please fill all fields");
+        return;
+      }
+
+      const table = document.getElementById("bookTable");
+      const row = table.insertRow();
+
+      row.innerHTML = `
+        <td class="border p-2">${bookId}</td>
+        <td class="border p-2">${bookName}</td>
+        <td class="border p-2">${authorName}</td>
+      `;
+
+      document.getElementById("bookName").value = "";
+      document.getElementById("authorName").value = "";
+      document.getElementById("bookId").value = "";
+    }
+  </script>
 
 </body>
 </html>
