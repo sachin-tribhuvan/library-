@@ -8,7 +8,6 @@
             font-family: Arial, sans-serif;
             background-color: #f4f6f8;
             margin: 0;
-            padding: 0;
         }
         header {
             background-color: #2c3e50;
@@ -27,41 +26,30 @@
             text-decoration: none;
             font-weight: bold;
         }
-        nav a:hover {
-            text-decoration: underline;
-        }
         section {
             padding: 20px;
         }
-        .card {
+        .box {
             background: white;
             padding: 15px;
             margin-bottom: 15px;
             border-radius: 5px;
-            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+        input, button {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+        }
+        button {
+            background-color: #2c3e50;
+            color: white;
+            border: none;
         }
         footer {
             background-color: #2c3e50;
             color: white;
             text-align: center;
             padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-        input, button {
-            padding: 8px;
-            margin: 5px 0;
-            width: 100%;
-        }
-        button {
-            background-color: #2c3e50;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #1a252f;
         }
     </style>
 </head>
@@ -69,47 +57,42 @@
 
 <header>
     <h1>Library Management System</h1>
-    <p>Manage Books, Students, and Records</p>
 </header>
 
 <nav>
-    <a href="#home">Home</a>
-    <a href="#books">Books</a>
-    <a href="#students">Students</a>
-    <a href="#issue">Issue Book</a>
-    <a href="#contact">Contact</a>
+    <a href="#">Home</a>
+    <a href="#">Books</a>
+    <a href="#">Students</a>
+    <a href="#">Issue Book</a>
 </nav>
 
-<section id="home">
-    <div class="card">
-        <h2>Welcome</h2>
-        <p>This Library Management System helps you manage books, students, and book issue records easily.</p>
-    </div>
-</section>
-
-<section id="books">
-    <div class="card">
+<section>
+    <div class="box">
         <h2>Add Book</h2>
         <input type="text" placeholder="Book Name">
         <input type="text" placeholder="Author Name">
         <input type="text" placeholder="Book ID">
         <button>Add Book</button>
     </div>
-</section>
 
-<section id="students">
-    <div class="card">
+    <div class="box">
         <h2>Add Student</h2>
         <input type="text" placeholder="Student Name">
         <input type="text" placeholder="Student ID">
-        <input type="text" placeholder="Course">
         <button>Add Student</button>
     </div>
-</section>
 
-<section id="issue">
-    <div class="card">
+    <div class="box">
         <h2>Issue Book</h2>
         <input type="text" placeholder="Student ID">
         <input type="text" placeholder="Book ID">
-        <bu
+        <button>Issue</button>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2025 Library Management</p>
+</footer>
+
+</body>
+</html>
